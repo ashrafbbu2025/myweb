@@ -100,6 +100,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.1/jspdf.plugin.autotable.min.js"></script>
 
 <script>
+   if (
+    document.referrer === "" ||
+    !document.referrer.includes(window.location.origin)
+  ) {
+    window.location.href = "index.html"; 
+  }
 const resultsRoot = document.getElementById('resultsRoot');
 const groupList = document.getElementById('groupList');
 const currentDateElem = document.getElementById('currentDate');
@@ -210,3 +216,4 @@ window.addEventListener('storage', (e)=>{
 </script>
 </body>
 </html>
+
