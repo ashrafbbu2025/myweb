@@ -115,6 +115,12 @@ button {
 </div>
 
 <script>
+   if (
+    document.referrer === "" ||
+    !document.referrer.includes(window.location.origin)
+  ) {
+    window.location.href = "index.html"; 
+  }
 const canvas = document.getElementById('wheelCanvas');
 const ctx = canvas.getContext('2d');
 const spinButton = document.getElementById('spinButton');
@@ -271,3 +277,4 @@ window.addEventListener('storage', (e)=>{
 </script>
 </body>
 </html>
+
