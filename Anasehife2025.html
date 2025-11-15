@@ -137,6 +137,13 @@
 </div>
 
 <script>
+    // Yalnız ana səhifədən keçənlər daxil ola bilər
+  if (
+    document.referrer === "" ||
+    !document.referrer.includes(window.location.origin)
+  ) {
+    window.location.href = "index.html"; 
+  }
 const currentTeacher = localStorage.getItem('currentTeacher');
 if(!currentTeacher){
   
@@ -153,3 +160,4 @@ let allResults = JSON.parse(localStorage.getItem(`results_${currentLogin}`)) || 
 
 </body>
 </html>
+
