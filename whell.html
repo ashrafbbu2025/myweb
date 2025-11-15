@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wheel of Fortune - Qrup ilə</title>
+<title> Game Wheel - Qrup ilə</title>
 <style>
 :root{
   --main-color:#1f3f70;
@@ -94,7 +94,7 @@ button {
 </head>
 <body>
 
-<h1>Wheel of Fortune - Qrup ilə</h1>
+<h1> Oyun çarxı - Qrup ilə </h1>
 
 <select id="groupSelect">
   <option value="">Qrup seçin</option>
@@ -102,7 +102,7 @@ button {
 
 <div class="wheel-container">
   <canvas id="wheelCanvas" width="500" height="500"></canvas>
-  <button id="spinButton">Spin the Wheel</button>
+  <button id="spinButton">Başla</button>
 </div>
 
 <div class="result-box" id="resultBox">
@@ -223,7 +223,7 @@ function determineWinner() {
   const selectedName = names[winningSegmentIndex];
 
   let questions = groupQuestions[currentGroup] || [];
-  let selectedQuestion = "No questions available.";
+  let selectedQuestion = "Sual yoxdur!";
   if(questions.length>0) {
     const qIndex = Math.floor(Math.random()*questions.length);
     selectedQuestion = questions[qIndex];
@@ -277,4 +277,5 @@ window.addEventListener('storage', (e)=>{
 </script>
 </body>
 </html>
+
 
