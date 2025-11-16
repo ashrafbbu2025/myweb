@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UniWheely</title>
 <style>
-   body {
+  body {
     font-family: 'Segoe UI', sans-serif;
     background: #f2f5f8;
     margin: 0;
@@ -14,69 +14,71 @@
     justify-content: center;
     align-items: center;
   }
- .login-container {
+
+  .login-container {
     background: #fff;
-    padding: 40px 35px 45px;
-    border-radius: 16px;
+    padding: 50px 40px 55px;
+    border-radius: 20px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    width: 330px;
+    width: 360px;
     text-align: center;
   }
-   .logo-box {
-    width: 100px;
-    height: 100px;
+  .logo-box {
+    width: 140px;
+    height: 140px;
     background: #ffffff;
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 10px;
-    overflow: hidden; /* LOGO HAMSININ DÜZGÜN GÖRÜNMƏSİ ÜÇÜN */
+    margin: 0 auto 20px;
+    overflow: hidden;
   }
-   .logo {
+
+  .logo {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* LOGO ARTIQ ÇƏRÇIVƏYƏ MÜKƏMMƏL OTURUR */
+    object-fit: contain;
   }
+
   .login-container h1 {
     color: #1f3f70;
-    font-size: 20px;
-    margin-top: 5px;  /* LOGO İLƏ ARADAKI BOŞLUQ AZALDI */
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 25px;
     font-weight: 600;
   }
+
   .input-group {
     position: relative;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     width: 100%;
   }
+
   .input-group input {
     width: 100%;
-    padding: 12px 42px 12px 14px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 15px;
+    padding: 14px 45px 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e0;
+    font-size: 16px;
     box-sizing: border-box;
     outline: none;
-    transition: 0.3s;
+    transition: 0.25s;
+    background: #f9fbfd;
   }
+
   .input-group input:focus {
     border-color: #1f3f70;
-    box-shadow: 0 0 4px rgba(31,63,112,0.25);
+    box-shadow: 0 0 6px rgba(31,63,112,0.25);
   }
+
   .error input {
     border-color: #e63946 !important;
     box-shadow: 0 0 6px rgba(230,57,70,0.3) !important;
   }
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-6px); }
-    40%, 80% { transform: translateX(6px); }
-  }
-  .shake {
-    animation: shake 0.4s ease;
-  }
+
+  /* SHOW/HIDE password */
   .toggle-eye {
     position: absolute;
     right: 12px;
@@ -85,24 +87,27 @@
     width: 22px;
     height: 22px;
     cursor: pointer;
-    opacity: 0.65;
+    opacity: 0.7;
     transition: 0.3s;
   }
   .toggle-eye:hover { opacity: 1; }
+
   button {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     background: #1f3f70;
     color: #fff;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
-    margin-top: 5px;
+    margin-top: 10px;
   }
+
   button:hover { background: #142b4e; }
+
   .toast {
     position: fixed;
     top: 20px;
@@ -120,31 +125,34 @@
     opacity: 1;
     transform: translateY(0);
   }
+
   @media (max-width: 400px) {
-    .login-container { width: 90%; padding: 30px 25px 35px; }
-    .logo-box { width: 90px; height: 90px; }
-    .logo { width: 70px; height: 70px; }
+    .login-container { width: 90%; padding: 35px 25px 40px; }
+    .logo-box { width: 120px; height: 120px; }
   }
 </style>
 </head>
 <body>
-
 <div class="login-container" id="loginContainer">
   <div class="logo-box">
     <img src="Ulogo.png" alt="UniWheely logo" class="logo">
   </div>
+
   <div class="input-group" id="nameGroup">
     <input type="text" id="teacherName" placeholder="Müəllim adı və Soyadı">
   </div>
+
   <div class="input-group" id="loginGroup">
     <input type="text" id="login" placeholder="Login">
   </div>
+
   <div class="input-group" id="passGroup">
     <input type="password" id="password" placeholder="Parol">
     <svg class="toggle-eye" id="toggleEye" viewBox="0 0 24 24" fill="none">
       <path d="M12 5C7 5 2.73 8.11 1 12C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 12C21.27 8.11 17 5 12 5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" fill="#555"/>
     </svg>
   </div>
+
   <button id="loginBtn">Daxil ol</button>
 </div>
 
@@ -159,6 +167,7 @@ function showToast(msg) {
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 2500);
 }
+
 const allowedUsers = {
   "Ashraf75": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f", 
   "Teacher1": "55e02008befbdeb0d13edd7afa7017ee6ae6a4bfd1dee9b8104b48801e92d70d", 
@@ -224,7 +233,3 @@ document.getElementById('loginBtn').onclick = async () => {
 
 </body>
 </html>
-
-
-
-
